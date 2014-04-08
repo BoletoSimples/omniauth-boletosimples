@@ -29,17 +29,38 @@ end
 The possible attributes to be returned at the moment are:
 
 ```ruby
-info['name']
+info['person_type']
+info['person_name']
 info['email']
+info['cnpj_cpf']
 
-extra['raw_info']
+extra['address_street_name']
+extra['address_number']
+extra['address_complement']
+extra['address_state']
+extra['address_city_name']
+extra['address_neighborhood']
+extra['address_postal_code']
+extra['phone_number']
+extra['banking_bank_number']
+extra['banking_agency_number']
+extra['banking_account_number']
+extra['banking_account_digit']
+extra['banking_person_type']
+extra['banking_person_name']
+extra['banking_cnpj_cpf']
+extra['paypal_account']
 ```
 
 The actual set of attributes returned depends on the scopes set. The currently available scopes are:
 
 ```
+login
 profile
 email
+phone
+address
+banking
 write
 read
 webhook
