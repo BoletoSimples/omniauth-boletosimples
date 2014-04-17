@@ -55,6 +55,11 @@ module OmniAuth
         environment = options.environment || :production
         options.client_options[:site] = ENVIRONMENTS[environment.to_sym]
         options.client_options[:authorize_url] = "#{ENVIRONMENTS[environment.to_sym]}/api/v1/oauth2/authorize"
+        options.client_options[:connection_opts] = {
+          headers: {
+            'User-Agent' => options.user_agent,
+          }
+        } if options.user_agent
       end
 
       def raw_info

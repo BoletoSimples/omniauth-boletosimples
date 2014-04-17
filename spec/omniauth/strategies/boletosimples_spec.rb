@@ -34,6 +34,13 @@ describe OmniAuth::Strategies::BoletoSimples do
     it 'has correct token url' do
       subject.client.options[:token_url].should eq('/api/v1/oauth2/token')
     end
+
+    it 'has correct connection_opts' do
+      @options = { :user_agent => 'email@example.com' }
+      subject.setup_phase
+      subject.client.options[:connection_opts].should eq({:headers=>{:"User-Agent"=>"email@example.com"}})
+    end
+
   end
 
   describe '#callback_path' do
