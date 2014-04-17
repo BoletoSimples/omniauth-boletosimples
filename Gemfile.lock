@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    omniauth-boletosimples (0.0.2)
+    omniauth-boletosimples (0.0.3)
       omniauth-oauth2 (~> 1.1.0)
 
 GEM

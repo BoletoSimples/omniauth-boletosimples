@@ -42,6 +42,7 @@ module OmniAuth
           phone_number: raw_info['phone_number'],
           banking_bank_number: raw_info['banking_bank_number'],
           banking_agency_number: raw_info['banking_agency_number'],
+          banking_agency_digit: raw_info['banking_agency_digit'],
           banking_account_number: raw_info['banking_account_number'],
           banking_account_digit: raw_info['banking_account_digit'],
           banking_person_type: raw_info['banking_person_type'],
