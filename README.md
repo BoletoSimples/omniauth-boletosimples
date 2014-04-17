@@ -20,9 +20,11 @@ Here's a quick example, adding the middleware to a Rails app in `config/initiali
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :boletosimples, ENV['APP_ID'], ENV['APP_TOKEN'], sandbox: true, scope: "profile email"
+  provider :boletosimples, ENV['APP_ID'], ENV['APP_TOKEN'], sandbox: true, scope: "profile email", user_agent: 'Your App (yourapp@example.com)'
 end
 ```
+
+It is important to set user_agent with a valid email address inside, otherwise the integration will not work.
 
 ## Attributes and Scopes
 
