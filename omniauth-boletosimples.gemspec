@@ -5,8 +5,8 @@ require 'omniauth/boletosimples/version'
 Gem::Specification.new do |s|
   s.name     = 'omniauth-boletosimples'
   s.version  = OmniAuth::BoletoSimples::VERSION
-  s.authors  = ['Rafael Lima']
-  s.email    = ['contato@rafael.adm.br']
+  s.authors  = ['Rafael Lima', 'Kivanio Barbosa']
+  s.email    = ['contato@rafael.adm.br', 'kivanio@gmail.com']
   s.summary  = 'BoletoSimples strategy for OmniAuth'
   s.homepage = 'https://github.com/BoletoSimples/omniauth-boletosimples'
   s.license  = 'MIT'
