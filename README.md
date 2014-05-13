@@ -34,9 +34,13 @@ The possible attributes to be returned at the moment are:
 
 ```ruby
 info['person_type']
-info['person_name']
+info['first_name']
+info['middle_name']
+info['last_name']
+info['full_name']
+info['date_of_birth']
 info['email']
-info['cnpj_cpf']
+info['cpf']
 
 extra['address_street_name']
 extra['address_number']
@@ -48,12 +52,15 @@ extra['address_postal_code']
 extra['phone_number']
 extra['banking_bank_number']
 extra['banking_agency_number']
+extra['banking_agency_digit']
 extra['banking_account_number']
 extra['banking_account_digit']
 extra['banking_person_type']
 extra['banking_person_name']
 extra['banking_cnpj_cpf']
-extra['paypal_account']
+extra['business_name']
+extra['business_cnpj']
+
 ```
 
 The actual set of attributes returned depends on the scopes set. The currently available scopes are:
@@ -65,6 +72,7 @@ email
 phone
 address
 banking
+business
 write
 read
 webhook
@@ -82,9 +90,13 @@ provider: boletosimples
 uid: 1
 info:
   person_type: 'individual'
-  person_name: 'Henry Renato Leonardo Barros'
+  first_name: 'Henry Renato'
+  middle_name: 'Leonardo'
+  last_name: 'Barros'
+  full_name: 'Henry Renato Leonardo Barros'
+  date_of_birth: '1987-04-01'
   email: 'henry@example.com'
-  cnpj_cpf: '139.586.432-21'
+  cpf: '139.586.432-21'
 credentials:
   token: <token>
   refresh_token: <refresh token>
@@ -101,12 +113,14 @@ extra:
   phone_number: '6336151015'
   banking_bank_number: '237'
   banking_agency_number: '3290'
+  banking_agency_digit: '1'
   banking_account_number: '1028'
   banking_account_digit: '9'
   banking_person_type: 'individual'
   banking_person_name: 'Henry Renato Leonardo Barros'
   banking_cnpj_cpf: '139.586.432-21'
-  paypal_account: 'henry@example.com'
+  business_name: 'Boleto Simples Cobranças Ltda'
+  business_cnpj: '05.813.794/0001-26'
 ```
 
 ## Issues
