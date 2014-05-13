@@ -1,5 +1,7 @@
 # OmniAuth BoletoSimples
 
+[![Gem Version](https://badge.fury.io/rb/omniauth-boletosimples.svg)](http://badge.fury.io/rb/omniauth-boletosimples)
+
 This gem contains the Log In With Boleto Simples strategy for OmniAuth.
 
 ## Installing
