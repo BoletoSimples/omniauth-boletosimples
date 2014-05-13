@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors  = ['Rafael Lima']
   s.email    = ['contato@rafael.adm.br']
   s.summary  = 'BoletoSimples strategy for OmniAuth'
-  s.homepage = 'https://github.com/BielSystems/omniauth-boletosimples'
+  s.homepage = 'https://github.com/BoletoSimples/omniauth-boletosimples'
   s.license  = 'MIT'
 
   s.files         = `git ls-files`.split("\n")
