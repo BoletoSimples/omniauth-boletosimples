@@ -22,7 +22,7 @@ Here's a quick example, adding the middleware to a Rails app in `config/initiali
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :boletosimples, ENV['APP_ID'], ENV['APP_TOKEN'], sandbox: true, scope: "profile email", user_agent: 'Your App (yourapp@example.com)'
+  provider :boletosimples, ENV['APP_ID'], ENV['APP_TOKEN'], environment: :sandbox, scope: "profile email", user_agent: 'Your App (yourapp@example.com)'
 end
 ```
 
@@ -126,6 +126,9 @@ extra:
 ## Issues
 
 If you have problems, please create a [Github Issue](https://github.com/BoletoSimples/omniauth-boletosimples/issues).
+
+## Sample Code
+Check our [Sample Code](https://github.com/BoletoSimples/login-with-boletosimples-demo-rails)
 
 ## Contributing
 

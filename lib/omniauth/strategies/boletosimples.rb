@@ -17,7 +17,7 @@ module OmniAuth
 
       option :authorize_options, [:scope, :response_type]
       option :provider_ignores_state, true
-      option :sandbox, false
+      option :environment, :production
 
       uid { raw_info['id'] }
 
