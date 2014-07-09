@@ -24,11 +24,11 @@ module OmniAuth
       info do
         {
           person_type: raw_info['person_type'],
-          first_name: raw_info[':first_name'],
-          middle_name: raw_info[':middle_name'],
-          last_name: raw_info[':last_name'],
-          full_name: raw_info[':full_name'],
-          date_of_birth: raw_info[':date_of_birth'],
+          first_name: raw_info['first_name'],
+          middle_name: raw_info['middle_name'],
+          last_name: raw_info['last_name'],
+          full_name: raw_info['full_name'],
+          date_of_birth: raw_info['date_of_birth'],
           email: raw_info['email'],
           cpf: raw_info['cpf']
         }
@@ -53,7 +53,7 @@ module OmniAuth
           banking_person_name: raw_info['banking_person_name'],
           banking_cnpj_cpf: raw_info['banking_cnpj_cpf'],
           business_name: raw_info['business_name'],
-          business_cnpj: raw_info['business_cnpj']          
+          business_cnpj: raw_info['business_cnpj']
         }
       end
 
