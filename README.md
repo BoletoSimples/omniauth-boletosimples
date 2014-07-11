@@ -14,7 +14,7 @@ gem "omniauth-boletosimples"
 
 Then:
 
-		$ bundle install
+$ bundle install
 
 ## Usage
 
@@ -22,7 +22,7 @@ Here's a quick example, adding the middleware to a Rails app in `config/initiali
 
 ```ruby
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :boletosimples, ENV['APP_ID'], ENV['APP_TOKEN'], environment: :sandbox, scope: "profile email", user_agent: 'Your App (yourapp@example.com)'
+  provider :boletosimples, ENV['APP_ID'], ENV['APP_SECRET'], environment: :sandbox, scope: "profile email write", user_agent: 'Your App (yourapp@example.com)'
 end
 ```
 
@@ -66,16 +66,16 @@ extra['business_cnpj']
 The actual set of attributes returned depends on the scopes set. The currently available scopes are:
 
 ```
-login
-profile
-email
-phone
-address
-banking
-business
-write
-read
-webhook
+login (Autenticar com seu usuário)
+email (Visualizar ao seu endereço de e-mail)
+profile (Visualizar dados da sua conta)
+address (Visualizar seu endereço)
+phone (Visualizar seu telefone)
+banking (Visualizar seus dados bancários)
+business (Visualizar seus dados da empresa)
+write (Criar e visualizar boletos bancários e clientes)
+read (Visualizar boletos bancários, clientes e extrato de transações)
+webhook (Receber notificações a cada mudança de status dos boletos)
 ```
 
 ## Registering for an API key
@@ -97,6 +97,9 @@ info:
   date_of_birth: '1987-04-01'
   email: 'henry@example.com'
   cpf: '139.586.432-21'
+  mother_name: 'Maria Leonardo Barros'
+  father_name: 'José Leonardo Barros'
+  sex: 'male'
 credentials:
   token: <token>
   refresh_token: <refresh token>
@@ -119,10 +122,11 @@ extra:
   banking_person_type: 'individual'
   banking_person_name: 'Henry Renato Leonardo Barros'
   banking_cnpj_cpf: '139.586.432-21'
-  business_name: 'Boleto Simples Cobranças Ltda'
+  business_name: 'Boleto Simples'
+  business_legal_name: 'Boleto Simples Cobranças Ltda'
   business_cnpj: '05.813.794/0001-26'
+  send_email_on_creation: true
 ```
-
 ## Issues
 
 If you have problems, please create a [Github Issue](https://github.com/BoletoSimples/omniauth-boletosimples/issues).
