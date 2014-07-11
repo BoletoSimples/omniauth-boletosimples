@@ -11,41 +11,41 @@ describe OmniAuth::Strategies::BoletoSimples do
   describe '#client' do
     it 'has correct BoletoSimples site' do
       subject.setup_phase
-      subject.client.site.should eq('https://boletosimples.com.br')
+      expect(subject.client.site).to eq('https://boletosimples.com.br')
     end
 
     it 'has correct BoletoSimples sandbox site' do
       @options = { :environment => :sandbox }
       subject.setup_phase
-      subject.client.site.should eq('https://sandbox.boletosimples.com.br')
+      expect(subject.client.site).to eq('https://sandbox.boletosimples.com.br')
     end
 
     it 'has correct authorize url' do
       subject.setup_phase
-      subject.client.options[:authorize_url].should eq('https://boletosimples.com.br/api/v1/oauth2/authorize')
+      expect(subject.client.options[:authorize_url]).to eq('https://boletosimples.com.br/api/v1/oauth2/authorize')
     end
 
     it 'has correct sandbox authorize url' do
       @options = { :environment => :sandbox }
       subject.setup_phase
-      subject.client.options[:authorize_url].should eq('https://sandbox.boletosimples.com.br/api/v1/oauth2/authorize')
+      expect(subject.client.options[:authorize_url]).to eq('https://sandbox.boletosimples.com.br/api/v1/oauth2/authorize')
     end
 
     it 'has correct token url' do
-      subject.client.options[:token_url].should eq('/api/v1/oauth2/token')
+      expect(subject.client.options[:token_url]).to eq('/api/v1/oauth2/token')
     end
 
     it 'has correct connection_opts' do
       @options = { :user_agent => 'email@example.com' }
       subject.setup_phase
-      subject.client.options[:connection_opts].should eq({:headers=>{:"User-Agent"=>"email@example.com"}})
+      expect(subject.client.options[:connection_opts]).to eq({:headers=>{:"User-Agent"=>"email@example.com"}})
     end
 
   end
 
   describe '#callback_path' do
     it "has the correct callback path" do
-      subject.callback_path.should eq('/auth/boletosimples/callback')
+      expect(subject.callback_path).to eq('/auth/boletosimples/callback')
     end
   end
 
