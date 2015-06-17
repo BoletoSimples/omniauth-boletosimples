@@ -7,7 +7,7 @@ module OmniAuth
       ENVIRONMENTS = {
         development: 'http://localhost:5000',
         sandbox: 'https://sandbox.boletosimples.com.br',
-        production: 'https://boletosimples.com.br',
+        production: 'https://boletosimples.com.br'
       }
       option :name, 'boletosimples'
       option :client_options, {
