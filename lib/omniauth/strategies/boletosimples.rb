@@ -47,18 +47,9 @@ module OmniAuth
           address_neighborhood: raw_info['address_neighborhood'],
           address_postal_code: raw_info['address_postal_code'],
           phone_number: raw_info['phone_number'],
-          banking_bank_number: raw_info['banking_bank_number'],
-          banking_agency_number: raw_info['banking_agency_number'],
-          banking_agency_digit: raw_info['banking_agency_digit'],
-          banking_account_number: raw_info['banking_account_number'],
-          banking_account_digit: raw_info['banking_account_digit'],
-          banking_person_type: raw_info['banking_person_type'],
-          banking_person_name: raw_info['banking_person_name'],
-          banking_cnpj_cpf: raw_info['banking_cnpj_cpf'],
           business_legal_name: raw_info['business_legal_name'],
           business_name: raw_info['business_name'],
-          business_cnpj: raw_info['business_cnpj'],
-          send_email_on_creation: raw_info['send_email_on_creation']
+          business_cnpj: raw_info['business_cnpj']
         }
       end
 
