@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    omniauth-boletosimples (0.0.8)
+    omniauth-boletosimples (0.0.9)
       omniauth-oauth2 (~> 1.4.0)
 
 GEM
