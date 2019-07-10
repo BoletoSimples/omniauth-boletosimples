@@ -1,21 +1,22 @@
+# frozen_string_literal: true
+
 require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
     class BoletoSimples < OmniAuth::Strategies::OAuth2
-      DEFAULT_SCOPE = "profile"
+      DEFAULT_SCOPE = 'profile'
       ENVIRONMENTS = {
         development: 'http://localhost:5000',
         sandbox: 'https://sandbox.boletosimples.com.br',
         production: 'https://boletosimples.com.br'
-      }
+      }.freeze
       option :name, 'boletosimples'
-      option :client_options, {
-        :token_url     => '/api/v1/oauth2/token',
-        :setup         => true
-      }
+      option :client_options,
+             token_url: '/api/v1/oauth2/token',
+             setup: true
 
-      option :authorize_options, [:scope, :response_type]
+      option :authorize_options, %i[scope response_type]
       option :provider_ignores_state, true
       option :environment, :production
 
@@ -33,7 +34,7 @@ module OmniAuth
           cpf: raw_info['cpf'],
           mother_name: raw_info['mother_name'],
           father_name: raw_info['father_name'],
-          sex: raw_info['sex'],
+          sex: raw_info['sex']
         }
       end
 
@@ -57,11 +58,13 @@ module OmniAuth
         environment = options.environment || :production
         options.client_options[:site] = ENVIRONMENTS[environment.to_sym]
         options.client_options[:authorize_url] = "#{ENVIRONMENTS[environment.to_sym]}/api/v1/oauth2/authorize"
-        options.client_options[:connection_opts] = {
-          headers: {
-            'User-Agent' => options.user_agent,
+        if options.user_agent
+          options.client_options[:connection_opts] = {
+            headers: {
+              'User-Agent' => options.user_agent
+            }
           }
-        } if options.user_agent
+        end
       end
 
       def raw_info
@@ -79,12 +82,13 @@ module OmniAuth
       end
 
       private
-        def load_identity
-          access_token.options[:mode] = :query
-          access_token.options[:param_name] = :access_token
-          access_token.options[:grant_type] = :authorization_code
-          access_token.get('/api/v1/userinfo').parsed
-        end
+
+      def load_identity
+        access_token.options[:mode] = :query
+        access_token.options[:param_name] = :access_token
+        access_token.options[:grant_type] = :authorization_code
+        access_token.get('/api/v1/userinfo').parsed
+      end
     end
   end
 end
