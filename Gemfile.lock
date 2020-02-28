@@ -29,7 +29,7 @@ GEM
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
     rack (2.0.7)
-    rake (12.3.2)
+    rake (13.0.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
