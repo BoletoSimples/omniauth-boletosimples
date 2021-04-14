@@ -85,9 +85,6 @@ module OmniAuth
       private
 
       def load_identity
-        access_token.options[:mode] = :query
-        access_token.options[:param_name] = :access_token
-        access_token.options[:grant_type] = :authorization_code
         access_token.get('/api/v1/userinfo').parsed
       end
     end

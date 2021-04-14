@@ -42,9 +42,26 @@ describe OmniAuth::Strategies::BoletoSimples do
     expect(subject.client.options[:connection_opts]).to eq(headers: { "User-Agent": 'email@example.com' })
   end
 
-  describe '#callback_path' do
-    it 'has the correct callback path' do
-      expect(subject.callback_path).to eq('/auth/boletosimples/callback')
+  describe '#callback_url' do
+    let(:base_url) { 'https://example.com' }
+
+    it 'has the correct default callback path' do
+      allow(subject).to receive(:full_host) { base_url }
+      allow(subject).to receive(:script_name) { '' }
+      expect(subject.send(:callback_url)).to eq("#{base_url}/auth/boletosimples/callback")
+    end
+
+    it 'should set the callback path with script_name if present' do
+      allow(subject).to receive(:full_host) { base_url }
+      allow(subject).to receive(:script_name) { '/v1' }
+      expect(subject.send(:callback_url)).to eq("#{base_url}/v1/v1/auth/boletosimples/callback")
+    end
+
+    it 'should set the callback_path parameter if present' do
+      @options = { callback_path: '/auth/foo/callback' }
+      allow(subject).to receive(:full_host) { base_url }
+      allow(subject).to receive(:script_name) { '' }
+      expect(subject.send(:callback_url)).to eq("#{base_url}/auth/foo/callback")
     end
   end
 end
